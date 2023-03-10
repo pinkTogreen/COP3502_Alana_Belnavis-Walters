@@ -22,16 +22,11 @@ def encode(password):
     return enco_str
 
 
-def decode(encoded):
-    decoded_str = ""
-    for i in encoded:
-        if int(i) < 3:
-            num = int(i) + 7
-            decoded_str += str(num)
-        else:
-            num = int(i) - 3
-            decoded_str += str(num)
-    return decoded_str
+def decode(string): # Added decoded string
+    un_pass = ""
+    for i in range(len(string)):
+        un_pass += str(int(string[i]) - 3)
+    print(f'The encoded password is {string}, and the original password is {un_pass}.\n')
 
 
 opt = 0
@@ -53,7 +48,6 @@ if __name__ == "__main__":
 
             elif opt == 2:
                 decoded = decode(encoded_pass)
-                print(f"Your encoded password is {encoded_pass}, and your original password is {decoded}.")
                 continue
 
                 # i could have just printed the password variable and the encoded pass since
