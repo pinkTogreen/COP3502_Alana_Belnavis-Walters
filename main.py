@@ -25,7 +25,10 @@ def encode(password):
 def decode(string): # Added decoded string
     un_pass = ""
     for i in range(len(string)):
-        un_pass += str(int(string[i]) - 3)
+        if int(string[i]) <= 2:
+            un_pass += str(int(string[i]) +7)
+        else:
+            un_pass += str(int(string[i]) - 3)
     print(f'The encoded password is {string}, and the original password is {un_pass}.\n')
 
 
